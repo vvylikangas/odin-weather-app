@@ -1,10 +1,15 @@
-const apiKey = 'MLBVAAJQYEQ75725W5D9M65EF';
+const apiKey = process.env.API_KEY;
 
 const getWeather = async (location) => {
   const uri = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/today?unitGroup=metric&include=current&key=${apiKey}&contentType=json`;
-  const response = await fetch(uri);
-  const data = await response.json();
-  handleData(data);
+
+  try {
+    const response = await fetch(uri);
+    const data = await response.json();
+    handleData(data);
+  } catch (error) {
+    alert('Error fetching weather data');
+  }
 };
 
 const handleData = ({ resolvedAddress: location, days, currentConditions }) => {
