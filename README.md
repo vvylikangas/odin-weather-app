@@ -2,4 +2,4 @@
 Simple Weather App
 
 ## Demo:
-![App Demo]/assets/Demo.gif
+![App Demo](assets/Demo.gif)
